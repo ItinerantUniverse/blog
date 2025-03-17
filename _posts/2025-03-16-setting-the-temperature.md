@@ -11,27 +11,25 @@ tags:
 
 One of the things I'm aiming to achieve with Itinerant is a fairly decent set of survival mechanics. So far, I've mainly been concentrating on making sure the environment I'm creating is capable of generating realistic-looking terrain and subterranean geology, but this weekend I turned my attention to something I definitely need to add - knowing what the surrounding temperature is when on a planet.
 
-I was initially torn about the way to approach this - with my Earth planet, it's very tempting to just take current weather observations and plug them into the game to see what I can do in terms of making it 'look' realistic - however I felt like I'd be jumping ahead of myself and this entire project has always been about putting the hard work in first to reap the rewards later rather than finding a shortcut that makes things look good early on but leaves me with a hard-coded mess and a bunch of unresolved stuff to sort out later.
+I was initially torn about the way to approach this - with my Earth planet, it's very tempting to just take current weather observations and plug them into the game to see what I can do in terms of making it 'look' realistic - however I felt like I'd be jumping ahead of myself doing that. This entire project has always been about putting the hard work in first to reap the rewards later rather than finding a shortcut that makes things look good early on but leaves me with a hard-coded mess and a bunch of unresolved stuff to sort out later.
 
-On the flip side, I'm also aware that realistic weather simulations involve supercomputers, people with PHDs and decades of research, which is
-somewhat out of my reach, so I need to find a good path through the middle which gives me a decent base to build on and can be compare to real
-Earth data to see if I'm getting anywhere close to reality.
+It's a bit like if I used real-time weather data to determine when it was raining. This would make is super easy for me to show rain on planets, and I could show screenshots and videos where I say stuff like 'look, I've got rain now!', but I wouldn't have solved the underlying problem of how I determine *when* it's going to rain, and why. This is the harder and more boring stuff that I want to get out of the way first, so I can move onto the shiny and more exciting stuff later.
 
-I figured probably a good place to start would be to see if I could find a reasonable 'average' temperature for any planet based on some known
-factors (like size/brightness of it's star, distance of the planet to the star and the size of the planet) and then just seeing what direction
-that took me in.
+That said, I'm also aware that realistic weather simulations involve supercomputers, people with PHDs and decades of research, which is somewhat out of my reach, so I really can't go full-on *'I'm going to simulate everything using physics! In detail!'*
 
-There's some interesting articles about planetary temperatures on the web, and it became apparent that there are some simple calculations you
-can do to make rough estimates that don't seem too far removed from reality.
+I need to find a good path through the middle which gives me a decent base to build on and can be compared to real Earth data to see if I'm getting anywhere close to reality. As a side-note, I also want to abstract this all away so different planets can use different environment models where needed. When the time is right and we want to look at a fully-traversable real-time clone of planet Earth, it will indeed rain when it's raining outside, and then I'll need the real-time weather data I'm currently trying hard to ignore.
+
+So anyway, there's a lot to do with weather and planetary environments, but I figured probably a good place to start would be to see if I could find a reasonable 'average' temperature for any planet based on some known factors (like size/brightness of it's star, distance of the planet to the star and the size of the planet) and then just see what direction that took me in.
+
+There's some interesting articles about planetary temperatures on the web, and it became apparent that there are some simple calculations you can do to make rough estimates that don't seem too far removed from reality.
 
 The first thing I came across was this Stack Exchange question which had a lot of symbols I didn't initially understand:
 
 https://astronomy.stackexchange.com/questions/10113/how-to-calculate-the-expected-surface-temperature-of-a-planet
 
-The answer to the question mentions 'radiative equilibrium temperature' (aka Planetary Equilibrium Temperature), which is the temperature
-a planet would be at if you consider it a black body radiator with no greenhouse effect caused by the atmosphere.
+The answer to the question mentions 'radiative equilibrium temperature' (aka Planetary Equilibrium Temperature), which is the average temperature a planet would be at if you consider it a black body radiator with no greenhouse effect caused by the atmosphere.
 
-This formula in particular became my first stopping-off point:
+This formula in particular became my first point of reference:
 
 ----
 
@@ -45,9 +43,7 @@ Now, I initially thought I'd just get the luminosity of our Sun and worry about 
 seemed a bit like cheating, and I wondered how to calculate the luminosity. It turns out this can be calculated by knowing the temperature of
 the star, and there is a direct relationship between the mass of the star and it's temperature...
 
-Which seems pretty obvious now I think of it - basically the bigger the star, the brighter it is. This is great for my procedurally-generated
-universe, because I can just randomly determine the size of the star and I'll automatically know how bright it is and the color of the light
-it radiates.
+Which seems pretty obvious now I think of it - basically the bigger the star, the brighter it is. This is great for my procedurally-generated universe, because I can just randomly determine the size of the star and I'll automatically know how bright it is and the color of the light it radiates.
 
 Looking to this page:
 
@@ -57,9 +53,7 @@ I found a way to determine the luminosity:
 
 L = F x Area = 4 π R2 σSB T4
 
-Now this is where my brian lets me down because the mathematicians have this secret code which they think is not really secret because they write
-it over and over again in millions of books, but yet I can't retain the information. I know what bloody Pi is, but that round thing with a tail
-is the Stefan Boltzmann constant and I keep repeatedly forgetting that's what it is. So I'm writing it down here to my future self:
+Now this is where my brain lets me down because the mathematicians have this secret code which they think is not really secret because they write it over and over again in thousands of books and papers, but then they randomly throw these symbols into equations and they're a nightmare to look up online. I know what bloody Pi is, but that round thing with a tail is the Stefan Boltzmann constant and I keep repeatedly forgetting that's what it is. So I'm writing it down here to my future self:
 
 [Stefan Boltzmann Constant here]
 
