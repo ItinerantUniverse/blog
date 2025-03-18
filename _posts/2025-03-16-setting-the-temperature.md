@@ -52,7 +52,7 @@ https://www.astronomy.ohio-state.edu/thompson.1847/1144/Lecture9.html#:~:text=L%
 
 I found a way to determine the luminosity:
 
-L = F x Area = 4 π R2 σSB T4
+![image](https://github.com/user-attachments/assets/d27a6b38-c2f4-4155-b8cc-8209453f9773)
 
 Now this is where my brain lets me down because the mathematicians have this secret code which they think is not really secret because they write it over and over again in thousands of books and papers, but then they randomly throw these symbols into equations and they're a nightmare to look up online. I know what bloody Pi is, but that round thing with a tail is the Stefan Boltzmann constant and I keep repeatedly forgetting that's what it is. So I'm writing it down here to my future self:
 
