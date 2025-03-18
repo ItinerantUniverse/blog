@@ -31,7 +31,8 @@ The answer to the question mentions 'radiative equilibrium temperature' (aka Pla
 
 This formula in particular became my first point of reference:
 
-----
+![image](https://github.com/user-attachments/assets/aff2c930-e189-4387-ba5f-bff79ddf8499)
+
 
 It mentions using the luminosity in Watts, the distance from the star in meters, the Stefan-Boltzmann constant, which is some handy thing
 you can read about here but I'm not going to worry myself too much with the details, and the albedo of the planet.
