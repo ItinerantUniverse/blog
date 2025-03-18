@@ -67,7 +67,25 @@ The Earth has an albedo of 0.612 so you know what, I've only got the weekend to 
 
 #### Putting it togther
 
-Handily this all starts to make some sense to me. As mentioned earlier, we're saying the luminosity of the star is in Watts, which I know as a unit of power. So, going back to that previous equation, we can see what we're really doing is figuring out how much power hits the planet at any given moment, bouncing a bunch back thanks to albedo and converting the rest into heat.
+Handily this all starts to make some sense to me. Going back to that previous equation, we know the following:
+
+- The luminosity of the star
+- The size of the planet
+- How far the planet is from the star
+- How much of the star's energy gets reflected back into space by the planet
+
+Given those factors, we also know that only one half of the planet is being lit by the star at any one time (so we can divide the energy from the sun by two), and then we also know that the sun hitting the planet doesn't hit equally across the entire lit surface, because the planet is spherical (so we can divide the energy by 2 again).
+
+This is how we end up with the original formula. As shown on StackOverflow, plugging data for the Warth into it gives this:
+
+---
+
+Now of course, we have a slight problem because it's not that cold on planet Earth. So far, we haven't considered the atmosphere at all. This is pretty handy for me because in Itinerant, it should be possible to land on planets and asteroids that have no atmosphere, and we're getting close to being able to figure out whether you or your spaceship is going melt when you try to touch down.
+
+
+
+
+
 
 This all led me onto the next article:
 
