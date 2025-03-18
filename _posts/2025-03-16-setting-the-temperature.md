@@ -25,24 +25,19 @@ The first thing I came across was this Stack Exchange question which had a lot o
 
 https://astronomy.stackexchange.com/questions/10113/how-to-calculate-the-expected-surface-temperature-of-a-planet
 
-The answer to the question mentions 'radiative equilibrium temperature' (aka Planetary Equilibrium Temperature), which is the average temperature a planet would be at if you consider it a black body radiator with no greenhouse effect caused by the atmosphere.
+The answer to the question mentions 'radiative equilibrium temperature' (aka Planetary Equilibrium Temperature), which is the average temperature a planet would be at if you consider it a black body radiator with no greenhouse effect caused by the atmosphere. So this is kind of my introduction to global weather.
 
-This formula in particular became my first point of reference:
+This formula in particular is a good start:
 
 ![image](https://github.com/user-attachments/assets/aff2c930-e189-4387-ba5f-bff79ddf8499)
 
+It mentions using the luminosity in Watts (L), the distance from the star in meters (d), the Stefan-Boltzmann constant (that's the Greek symbol sigma, you can read more about what it is here), and the albedo of the planet (a).
 
-It mentions using the luminosity in Watts, the distance from the star in meters, the Stefan-Boltzmann constant, which is some handy thing
-you can read about here but I'm not going to worry myself too much with the details, and the albedo of the planet.
+Therefore my two initial thoughts were, how do I get the luminosity of the star, and what is the albedo (other 3D programming-speak for the color of a thing).
 
-Therefore my two initial thoughts were, how do I get the luminosity of the star, and what is the albedo (other 3D programming-speak for the
-color of a thing).
+#### Luminosity 
 
-Now, I initially thought I'd just get the luminosity of our Sun and worry about how I calculate the luminosity of other stars later, but that
-seemed a bit like cheating, and I wondered how to calculate the luminosity. It turns out this can be calculated by knowing the temperature of
-the star, and there is a direct relationship between the mass of the star and it's temperature...
-
-Which seems pretty obvious now I think of it - basically the bigger the star, the brighter it is. This is great for my procedurally-generated universe, because I can just randomly determine the size of the star and I'll automatically know how bright it is and the color of the light it radiates.
+It turns out this can be calculated by knowing the temperature of the star, and there is a direct relationship between the mass of the star and it's temperature... which all seems pretty obvious now I think of it - basically the bigger the star, the brighter it is. This is great for my procedurally-generated universe, because I can just randomly determine the size of the star and I'll automatically know how bright it is and the color of the light it radiates.
 
 Looking to this page:
 
@@ -52,15 +47,27 @@ I found a way to determine the luminosity:
 
 ![image](https://github.com/user-attachments/assets/d27a6b38-c2f4-4155-b8cc-8209453f9773)
 
-Now this is where my brain lets me down because the mathematicians have this secret code which they think is not really secret because they write it over and over again in thousands of books and papers, but then they randomly throw these symbols into equations and they're a nightmare to look up online. I know what bloody Pi is, but that round thing with a tail is the Stefan Boltzmann constant and I keep repeatedly forgetting that's what it is. So I'm writing it down here to my future self:
+So, all we need to know to get the luminosity of the star is its radius and its temperature. Everything else is just Pi and the Stefan Boltzmann constant, which we already learned about earlier.
 
-[Stefan Boltzmann Constant here]
+#### Albedo
 
-So, all we need to know to get the luminosity of the star is its radius and its temperature.
+Albedo as I know it is just the raw colour of something without any shading or lighting altering it. We use it a lot in 3D, especially in regards to texture maps. However, the albedo in this case is a bit different, and somewhat simplified.
 
-Handily this all starts to make some sense to me. As mentinoed earlier, we're saying the luminosity of the star is in Watts, which I know as a unit
-of power. So, going back to that previous equation, we can see what we're really doing is figuring out how much power hits the planet at any given
-moment, converting that into heat and coming up with a value for how hot the surface is going to be.
+We can view albedo as being the amount of energy reflected back into space, expressed as a ratio between 0 and 1. When some of a star's light hits a planet, a certain amount of that light will bounce back into space and won't get converted into heat - so when we consider how much a planet is heated up by a star, in very simple terms we're multiplying the sun's energy that reaches the planet by one minus the albedo, which gives us the remaining amount of energy that is absorbed into the surface.
+
+Now of course a planet is made up of many different materials, and they all have their own albedo.
+
+Wikipedia has a good list of typical albedos:
+
+Down the line I think all my materials in my web interface are going to need an albedo level. I could then run some sort of calculation based on the composition of the planet to work out it's resultant albedo.
+
+I feel like filling out a database with albedos (or working out a way to calculate what the albedo for each material might be, which is almost certainly going to be a massive data entry task however I do it) is something to be done down-the-line so for now I think it's reasonable to use some known albedos to help me out. I know, this is a bit of a shortcut but it's certainly something that can be revisited later without massively altering my code.
+
+The Earth has an albedo of 0.612 so you know what, I've only got the weekend to do this, so that's what I'm going to use for planets.
+
+#### Putting it togther
+
+Handily this all starts to make some sense to me. As mentioned earlier, we're saying the luminosity of the star is in Watts, which I know as a unit of power. So, going back to that previous equation, we can see what we're really doing is figuring out how much power hits the planet at any given moment, bouncing a bunch back thanks to albedo and converting the rest into heat.
 
 This all led me onto the next article:
 
