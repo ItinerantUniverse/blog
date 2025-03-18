@@ -17,7 +17,7 @@ That said, I'm also aware that realistic weather simulations involve supercomput
 
 I need to find a good path through the middle which gives me a decent base to build on and can be compared to real Earth data to see if I'm getting anywhere close to reality. As a side-note, I also want to abstract this all away so different planets can use different environment models where needed. When the time is right and we want to look at a fully-traversable real-time clone of planet Earth, it will indeed rain when it's raining outside, and then I'll need the real-time weather data I'm currently trying hard to ignore.
 
-So anyway, there's a lot to do with weather and planetary environments, but I figured probably a good place to start would be to see if I could find a reasonable 'average' temperature for any planet based on some known factors (like size/brightness of it's star, distance of the planet to the star and the size of the planet) and then just see what direction that took me in.
+Obviously there's a lot to figure out, but I decided a good place to start would be to see if I could find a reasonable 'average' temperature for any planet based on some known factors (like size/brightness of it's star, distance of the planet to the star and the size of the planet) and then just see what direction that took me in.
 
 There's some interesting articles about planetary temperatures on the web, and it became apparent that there are some simple calculations you can do to make rough estimates that don't seem too far removed from reality.
 
