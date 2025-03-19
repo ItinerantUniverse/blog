@@ -76,7 +76,7 @@ Handily this all starts to make some sense to me. Going back to that previous eq
 
 Given those factors, we also know that only one half of the planet is being lit by the star at any one time (so we can divide the energy from the sun by two), and then we also know that the sun hitting the planet doesn't hit equally across the entire lit surface, because the planet is spherical (so we can divide the energy by 2 again).
 
-This is how we end up with the original formula. As shown on StackOverflow, plugging data for the Warth into it gives this:
+This is how we end up with the original formula. As shown on StackOverflow, plugging data for the Earth into it gives this:
 
 ---
 
@@ -86,81 +86,16 @@ Now of course, we have a slight problem because it's not that cold on planet Ear
 
 There is a really, really simple way to make our formula retain more heat and get it closer to the temperature on Earth. Emissivity.
 
-Emissivity is *another* ratio that deals with how much heat gets retained on the planet. I can't confess to understand it fully, but I think it's fair to view it as a mix of a number of different things - for example, CO2 in the atmosphere contributes to emissivity because it creates a greenhouse effect that traps heat within the planet. Oceans also contribute to emissivity because they soak up heat and only release it slowly. Pretty much anything on the planet's surface and atmosphere can contribute to it, and I feel like it's largely linked to my data entry problem that I have with albedo.
+Emissivity is *another* ratio that deals with how much heat gets retained on the planet. I can't confess to understand it fully, but I think it's fair to view it as a mix of a number of different things - for example, CO2 in the atmosphere contributes to emissivity because it creates a greenhouse effect that traps heat within the planet. Oceans also contribute to emissivity because they soak up heat and only release it slowly. Pretty much anything on the planet's surface and atmosphere can contribute to it, and when it's all put together you can figure out an average emissivity value for a planet.
 
-So, in a similar vein, I'm going to grab a known value for the Earth's emissivity and we'll use that as our base for now.
+In the future I can see that what I can do is add emissivity values to any material in the database, similar to albedo (I wonder if the two are linked?) and then we'd be able to calculate emissivity values reasonably accurately. For now, I think it's OK to use a known emissivity value for the Earth and then we can deal with the how we calculate emissivity as a future improvement.
 
+This gives us our final formula:
 
+----
 
+After all that, what we have here is just a global average temperature for a planet. It may be a reasonable estimate, but how do we know the temperature at a specific point on the planet and for that matter, what about a specific time of day/night?
 
+I must admit at this point I feel a bit deflated about the fact that although I've figured out quite a lot, I'm actually still quite a long way away from being able to land on a planet and know what the temperature is. You don't exactly want to land somewhere and find the entire planet is the same temperature, regardless of where you're standing or if it's day or night!
 
-
-This all led me onto the next article:
-
-https://web.archive.org/web/20210605120431/https://scied.ucar.edu/earth-system/planetary-energy-balance-temperature-calculate
-
-Now here I find things are getting really interesting, because the article establishes a fairly basic rule - the planet absorbs a certain amount
-of energy, and reflects a certain amount back into space, and it hints at the fact you can figure this out not only across the entire surface of
-the planet, but for any surface area.
-
-This got me thinking that down-the-line, I can probably come up with a base value for the tmeperature, but then when the player is actually
-standing on the surface, we can calculate the amount of energy hitting the player in realtime. We could use this to figure out when they're
-getting too hot or too cold, or maybe even getting sunburnt, and we could make this a cumulative effect that just constantly happens to the player
-and their stuff while they're on the surface. To that end, their spaceship while they're in space could be subject to the same effect. We don't
-necessarily just need to hard-code a distance to the sun where the ship burns up, we can instead rely on physics to burn the ship up for us :D
-
-Back to this initial stage, I felt it wasn't good enough to just get a value for an average temperature across the entire planet, because really
-the temperature should vary based on where you're standing, and of course it'll also vary if it's night or day. This led me to another post:
-
-https://worldbuilding.stackexchange.com/questions/185703/how-to-determine-planetary-extremes-of-temperature-from-average-global-temperatu
-
-This one I found really great, because it includes a way to figure out where the sun will be hitting based on axial tilt of the planet, and
-since my planets already have axial tilts on them, I thuoght it'd be amazing to try to combine everything I've learnt together.
-
-From that last link, I ended up writing three functions to help me determine how much energy falls on a particular part of the planet on a
-particulr day:
-
-        public double GetEffectiveLatitude(double actualLatitude, double yearRatio)
-        {
-            return actualLatitude + _planet.AxialTilt.Z * Math.Sin(yearRatio * 2 * Math.PI);
-        }
-
-        public double GetSolarPower(double actualLatitude, double yearRatio)
-        {
-            return Math.Abs(Math.Cos(GetEffectiveLatitude(actualLatitude, yearRatio)));
-        }
-
-        public double GetSolarPower(WGS84 pos, DateTime atTime)
-        {
-            TimeSpan t = atTime - DateTimeOffset.UnixEpoch;
-
-            return GetSolarPower(pos.LatitudeRadians(), _planet.OrbitalPeriod / t.TotalDays);
-        }
-
-I think I need to find a better name for it, but basically 'GetSolarPower' returns a value between 1 and 0, where 1 getting the full
-force of the sun's rays, and 0 is obviously getting nothing at all, because it's facing directly upwards relative to the star.
-
-[An improvement on this would be to also include the time of day, so the solar power falls away as the planet rotates - this is something
-I'll definitely add.]
-
-To test this is working, I overlaid my planet with color values to show how the power changes across the surface of the planet. In the
-image below, red represents the areas getting the most energy, and green the least:
-
---
-
-I was amazed to see that it actually came out looking roughly right on a first try - usually i get these things wildly wrong first time
-and then have to spend hours trying to figure out what the issue is before finding I copied a formula down wrong somewhere!
-
-I then have this functino to determine a baseline temperature:
-
-        public double GetEquilibriumTemperature()
-        {
-            return Math.Pow(((1 - _albedo) * StarLuminosity()) / (16 * Math.PI * _emissivity * GenericPlanet.STEFAN_BOLTZMANN * Math.Pow(_planet.OrbitalDistance, 2)), 1 / 4.0);
-        }
-
-
-My plan is to use these formulas alongside something that makes a 'best guess' based on the type of atmosphere, presence of water
-on the surface and height of the terrain to generate some sort of heatmap that can be precalculated for every procedural planet.
-
-In this way, I think I'll be able to work out how temperature fluctuates between day and night, but also make smaller fluctuations based on
-cloud cover, weather conditions, etc.
+However, I'm already forming some ideas about where I go next.
