@@ -88,14 +88,12 @@ There is a really, really simple way to make our formula retain more heat and ge
 
 Emissivity is *another* ratio that deals with how much heat gets retained on the planet. I can't confess to understand it fully, but I think it's fair to view it as a mix of a number of different things - for example, CO2 in the atmosphere contributes to emissivity because it creates a greenhouse effect that traps heat within the planet. Oceans also contribute to emissivity because they soak up heat and only release it slowly. Pretty much anything on the planet's surface and atmosphere can contribute to it, and when it's all put together you can figure out an average emissivity value for a planet.
 
-In the future I can see that what I can do is add emissivity values to any material in the database, similar to albedo (I wonder if the two are linked?) and then we'd be able to calculate emissivity values reasonably accurately. For now, I think it's OK to use a known emissivity value for the Earth and then we can deal with the how we calculate emissivity as a future improvement.
+In the future I can see that what I can do is add emissivity values to any material in the database, similar to albedo (I wonder if the two are linked?) and then we'd be able to calculate emissivity values reasonably accurately (bearing in mind we also need to consider the atmosphere as well). For now, I think it's OK to use a known emissivity value for the Earth and then we can deal with the how we calculate emissivity as a future improvement.
 
 This gives us our final formula:
 
-----
+---
 
 After all that, what we have here is just a global average temperature for a planet. It may be a reasonable estimate, but how do we know the temperature at a specific point on the planet and for that matter, what about a specific time of day/night?
 
-I must admit at this point I feel a bit deflated about the fact that although I've figured out quite a lot, I'm actually still quite a long way away from being able to land on a planet and know what the temperature is. You don't exactly want to land somewhere and find the entire planet is the same temperature, regardless of where you're standing or if it's day or night!
-
-However, I'm already forming some ideas about where I go next.
+I'll be covering this in the next post.
