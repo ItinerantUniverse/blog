@@ -94,7 +94,7 @@ In the future I can see that what I can do is add emissivity values to any mater
 
 This gives us our final formula:
 
-![image](https://github.com/user-attachments/assets/b2644b11-952b-4253-a51b-d64d5d9f152d)
+![image](https://github.com/user-attachments/assets/a985b017-6e64-42d3-b37b-148086086199)
 
 Where 'e' is emissivity.
 
