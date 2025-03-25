@@ -25,7 +25,7 @@ The first thing I came across was this Stack Exchange question which had a lot o
 
 https://astronomy.stackexchange.com/questions/10113/how-to-calculate-the-expected-surface-temperature-of-a-planet
 
-The answer to the question mentions 'radiative equilibrium temperature' (aka Planetary Equilibrium Temperature), which is the average temperature a planet would be at if you consider it a black body radiator with no greenhouse effect caused by the atmosphere. So this is kind of my introduction to global weather.
+The answer to the question mentions 'radiative equilibrium temperature' (aka Planetary Equilibrium Temperature), which is the average temperature a planet would be at if you consider it a black body radiator with no greenhouse effect caused by the atmosphere. So this is kind of my introduction to getting actual temperatures into Itinerant.
 
 This formula in particular is a good start:
 
