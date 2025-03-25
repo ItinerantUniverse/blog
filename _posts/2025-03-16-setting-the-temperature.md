@@ -82,11 +82,11 @@ This is how we end up with the original formula. As shown on Stack Exchange, plu
 
 This works out to about 256K, or -17°C.
 
-Now of course, we have a slight problem because it's not that cold on planet Earth. So far, we haven't considered the atmosphere at all. This is pretty handy for me because in Itinerant, it should be possible to land on planets and asteroids that have no atmosphere, and we're getting close to being able to figure out whether you or your spaceship is going melt when you try to touch down.
+Now of course, we have a slight problem because it's not that cold on planet Earth. So far, we haven't considered the atmosphere at all. Still, it's a good starting point - there are likely to be many planets in Itinerant where there is no atmosphere, and we're getting close to being able to figure out whether you or your spaceship is going melt when you try to touch down. Now it'd just be nice to try to add some sort of estimate for the atmosphere.
 
 #### Emissivity
 
-There is a really, really simple way to make our formula retain more heat and get it closer to the temperature on Earth. Emissivity.
+There is a really, really simple way to make our formula retain more heat and get it closer to the temperature on Earth - Emissivity.
 
 Emissivity is *another* ratio that deals with how much heat gets retained on the planet. I can't confess to understand it fully, but I think it's fair to view it as a mix of a number of different things - for example, CO2 in the atmosphere contributes to emissivity because it creates a greenhouse effect that traps heat within the planet. Oceans also contribute to emissivity because they soak up heat and only release it slowly. Pretty much anything on the planet's surface and atmosphere can contribute to it, and when it's all put together you can figure out an average emissivity value for a planet.
 
