@@ -40,3 +40,6 @@ I'm genuinely impressed by what it can do, especially considering it's available
 So here we have it. This is a bit of a milestone day because I set up a service on my dev machine that simulates the weather on my planet and consistently updates it in 30 second increments. I know wind speeds, surface pressure, and temperatures as different layers above the planet's surface and I'm recalculating it in close to real-time (with a fair bit of interpolation going on at times, to be fair).
 
 What this means is that I now have a background service running that I can add to going forwards and keep my planet evolving in real-time. It's not just that this means I have a route to getting working weather on the planet, it means I have a way of interacting and modifying terrain and the stuff the player is building as the game progresses. I want stuff like your base to get covered in dust when it's windy and dry, or leaks to appear if it's raining. This is now possible even when the player is away from the game and it opens up a lot of doors in terms of making the universe I want to create more dynamic and 'real'.
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/blog/proxima-d-rel-vorticity.gif" alt="">
+
