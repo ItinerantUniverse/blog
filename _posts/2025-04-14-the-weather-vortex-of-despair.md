@@ -41,5 +41,7 @@ So here we have it. This is a bit of a milestone day because I set up a service 
 
 What this means is that I now have a background service running that I can add to going forwards and keep my planet evolving in real-time. It's not just that this means I have a route to getting working weather on the planet, it means I have a way of interacting and modifying terrain and the stuff the player is building as the game progresses. I want stuff like your base to get covered in dust when it's windy and dry, or leaks to appear if it's raining. This is now possible even when the player is away from the game and it opens up a lot of doors in terms of making the universe I want to create more dynamic and 'real'.
 
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/blog/proxima-d-surface-temp.gif" alt="">
+
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/blog/proxima-d-rel-vorticity.gif" alt="">
 
