@@ -1,3 +1,14 @@
+---
+title: "Setting the Temperature"
+date: 2025-04-15T20:00:00+01:00
+categories:
+  - blog
+  - dev
+tags:
+  - Planets
+  - Atmosphere
+  - Environment
+---
 
 One of the major features that's been in my mind about Itinerant since its inception is that in some way, the worlds within the Itinerant universe should be constantly evolving and changing. I feel that a big problem with procedurally-generated planets is that it's hard to make them really seem 'alive'; often they are just a collection of predetermined biomes that are scattered across a planet using noise functions. It all gets a bit repetitive after a while, and there isn't necessarily much that changes from one place to another.
 
