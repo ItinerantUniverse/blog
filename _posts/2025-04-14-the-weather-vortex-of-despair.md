@@ -1,5 +1,5 @@
 ---
-title: "Setting the Temperature"
+title: "The Weather Vortex of Despair"
 date: 2025-04-14T20:00:00+01:00
 categories:
   - blog
