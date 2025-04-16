@@ -12,7 +12,7 @@ tags:
 
 One of the major features that's been in my mind about Itinerant since its inception is that in some way, the worlds within the Itinerant universe should be constantly evolving and changing. I feel that a big problem with procedurally-generated planets is that it's hard to make them really seem 'alive'; often they are just a collection of predetermined biomes that are scattered across a planet using noise functions. It all gets a bit repetitive after a while, and there isn't necessarily much that changes from one place to another.
 
-I felt one way to stop this from happening in Itinerant would be to have a method of determining where vegetation should grow based on the surrounding conditions, and I broke this down further by thinking I could set things up so you could plant trees in the ground and each tree would grow uniquely depending local environmental factors.
+One way to stop this from happening in Itinerant would be to have a method of determining where vegetation should grow based on the surrounding conditions. I tried to break this down further by thinking I could set things up so you could plant trees in the ground and each tree would grow uniquely depending on local environmental factors.
 
 It seemed a good place to start would be to try to simulate light and heat on a planet. I figured, if I can quickly calculate how much average light would fall on a specific point on the planet, plus what the surface temperature was, I could make a guess at how much vegetation would grow. Factor in a few other things like rainfall and ground type, and my biomes would start generating themselves in (hopefully) unique and dynamic ways not just from planet to planet, but that planets themselves could vary massively across their surfaces.
 
