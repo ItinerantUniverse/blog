@@ -36,7 +36,7 @@ I kept thinking I just needed to retain some heat on the dark side, and not let 
 
 Whatever I did, my planet with an atmosphere became a variety of temperatures on the light side (ranging from excruciatingly hot to not hot enough), and near to zero degrees Kelvin on the dark side and at the poles. I had a good base for planets and asteroids without an atmosphere, which will come in handy later, but I just wanted to know the surface temperature of the first procedural planet my system had spat out and try to figure out if my player was going to die or not.
 
-I ended up spending hours and hours looking at this code, thinking I must be close to something but never quite getting there. I have to say I did start to feel somewhat dejected. It felt a lot like I'd spent several years building a rendering and creation engine and I was going to get stumped by the survival mechanics, which I thought I'd be able to hook up pretty quickly. I know I could 'fake' it somehow, but I just wanted the variety and unpredictability in my systems that can only come from something that's more simulated on real physics.
+I ended up spending hours and hours looking at this code, thinking I must be close to something but never quite getting there. I have to say I have started to feel somewhat dejected by this stage. It feels a lot like I've spent several years building a rendering and creation engine and I'm in danger of getting stumped by the survival mechanics - which I thought I'd be able to hook up pretty quickly. I know I could 'fake' it somehow, but I want the variety and unpredictability in my systems that can only come from something that's more simulated on real physics.
 
 
 
